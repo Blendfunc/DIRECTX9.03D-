@@ -1,0 +1,3 @@
+﻿  gamedemo.cpp
+d:\directx9.03d\directx9.03d-.git\project2\dx\include\d3d9types.h(1385): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+gamedemo.cpp(3): error C2144: 语法错误:“void”的前面应有“;”
