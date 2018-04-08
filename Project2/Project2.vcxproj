@@ -115,11 +115,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CalculateNormalVectorOfThePlane.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="gamedemo.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LitPyramid.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CalculateNormalVectorOfThePlane.h" />
+    <ClInclude Include="Common.h" />
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="LitPyramid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

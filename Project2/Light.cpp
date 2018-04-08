@@ -16,7 +16,7 @@ D3DLIGHT9 * CLight::GetDirectionalLight(D3DXVECTOR3 * direction, D3DXCOLOR * col
 	return plight;
 }
 
-BOOL CLight::GetDirectionalLight2(outparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * direction, D3DCOLOR * color)
+BOOL CLight::GetDirectionalLight2(inoutparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * direction, D3DCOLOR * color)
 {
 	if (lightout && direction && color)
 	{
@@ -30,7 +30,7 @@ BOOL CLight::GetDirectionalLight2(outparameter D3DLIGHT9 ** lightout, inparamete
 			plight->Diffuse = *color;
 			plight->Specular = (*color) * 0.6f;
 			plight->Direction = *direction;
-			m_Lights.push_back(plight);
+			/*m_Lights.push_back(plight);*/
 			return TRUE;
 		}
 	}
@@ -42,7 +42,7 @@ D3DLIGHT9 * CLight::GetPointLight(D3DXVECTOR3 * position, D3DXCOLOR * color)
 	return nullptr;
 }
 
-BOOL CLight::GetPointLight2(outparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * position, D3DCOLOR * color)
+BOOL CLight::GetPointLight2(inoutparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * position, D3DCOLOR * color)
 {
 	return 0;
 }
@@ -52,7 +52,7 @@ D3DLIGHT9 * CLight::GetSpotLight(D3DXVECTOR3 * direction, D3DXCOLOR * color)
 	return nullptr;
 }
 
-BOOL CLight::GetSpotLight2(outparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * position, inparameter D3DXVECTOR3 * direction, D3DCOLOR * color)
+BOOL CLight::GetSpotLight2(inoutparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * position, inparameter D3DXVECTOR3 * direction, D3DCOLOR * color)
 {
 	return 0;
 }
