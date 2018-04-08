@@ -1,4 +1,5 @@
 #include".\DX\Include\d3dx9.h"
+#include "cube.h"
 static IDirect3D9 * static_d3d9;
 static D3DCAPS9 static_d3dpp;
 static IDirect3DDevice9 * static_device;
@@ -6,7 +7,7 @@ bool Display(IDirect3DDevice9 * device)
 {
 	if (device)
 	{
-		device->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0x00000000, 1.0f, 0);
+		device->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0xffffffff, 1.0f, 0);
 		device->Present(0, 0, 0, 0);
 		return true;
 	}
@@ -137,19 +138,30 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	ShowWindow(hwnd, iCmdShow);        //显示窗口
 	UpdateWindow(hwnd);                //更新窗口
 
-
+	CTheRevolvingBoxCube cube;
+	cube.Init(static_device);
+	static float i = 0.0f;
+	while (true)
+	{
+		i = i + 0.000000001f;
+		cube.Display(i);
+	}
 	while (GetMessage(&msg, NULL, 0, 0))        //从消息队列中获取消息
 	{
 		if (msg.message != WM_QUIT)
 		{
+			i = i + 0.0001f;
+			cube.Display(i);
 			if (::PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
 			{
+				
 				TranslateMessage(&msg);                 //将虚拟键消息转换为字符消息
 				DispatchMessage(&msg);                  //分发到回调函数(过程函数)
+
 			}
 			else
 			{
-				Display(static_device);
+				//Display(static_device);
 			}
 		}	
 	}

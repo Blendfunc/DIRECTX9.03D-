@@ -77,13 +77,13 @@ void CTheRevolvingBoxCube::Init(IDirect3DDevice9 * pDevice)
 			D3DXVECTOR3 target(0.0f, 0.0f, 0.0f);
 			D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
 			D3DXMATRIX V;
-			D3DXMatrixLookAtLH(&V, &position, &target, &up);
+			D3DXMatrixLookAtLH(&V, &position, &target, &up);//取景变换矩阵（即观察矩阵）
 			pDevice->SetTransform(D3DTS_VIEW, &V);
 
 			//Set the projection matrix.
 			D3DXMATRIX proj;
 			float Aspect = 800.0f / 600.0f;
-			D3DXMatrixPerspectiveFovLH(&proj, D3DX_PI * 0.5f, Aspect, 1.0f, 1000.0f);
+			D3DXMatrixPerspectiveFovLH(&proj, D3DX_PI * 0.5f, Aspect, 1.0f, 1000.0f);//依据视域体的描述信息创建一个投影矩阵
 			pDevice->SetTransform(D3DTS_PROJECTION, &proj);
 
 			//Switch to wireframe mode.
