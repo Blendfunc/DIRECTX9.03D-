@@ -67,7 +67,7 @@ void CLitPyramid::Init(inparameter IDirect3DDevice9 * pDevice)
 		pDevice->SetRenderState(D3DRS_SPECULARENABLE , true);//启用镜面高光
 
 															 //position and aim the camera.
-		D3DXVECTOR3 position(0.0f, 0.0f, -10.0f);
+		D3DXVECTOR3 position(0.0f, 1.0f, -3.0f);
 		D3DXVECTOR3 target(0.0f, 0.0f, 0.0f);
 		D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
 		D3DXMATRIX V;
@@ -79,7 +79,7 @@ void CLitPyramid::Init(inparameter IDirect3DDevice9 * pDevice)
 		float Aspect = 800.0f / 600.0f;
 		D3DXMatrixPerspectiveFovLH(&proj, D3DX_PI * 0.5f, Aspect, 1.0f, 1000.0f);//依据视域体的描述信息创建一个投影矩阵
 		pDevice->SetTransform(D3DTS_PROJECTION, &proj);
-		pDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+		/*pDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);*/
 	}
 }
 
@@ -88,7 +88,7 @@ void CLitPyramid::Display(float timeDelta)
 	if (m_pDevice && m_VB)
 	{
 		D3DXMATRIX Rx, Ry;
-		D3DXMatrixRotationX(&Rx, 3.14f / 4.0f);
+		/*D3DXMatrixRotationX(&Rx, 3.14f / 4.0f);*/
 		static float y = 0.0f;
 		D3DXMatrixRotationY(&Ry, y);
 		y += timeDelta;
@@ -96,10 +96,10 @@ void CLitPyramid::Display(float timeDelta)
 		{
 			y = 0.0f;
 		}
-		D3DXMATRIX p = Rx * Ry;
-		m_pDevice->SetTransform(D3DTS_WORLD, &p);
+		/*D3DXMATRIX p = Rx * Ry;*/
+		m_pDevice->SetTransform(D3DTS_WORLD, &Ry);
 
-		m_pDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0xffffffff, 1.0f, 0);
+		m_pDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0x00000000, 1.0f, 0);
 		m_pDevice->BeginScene();
 		m_pDevice->SetStreamSource(0, m_VB, 0, sizeof(LitPyramidVertex));
 		/*m_pDevice->SetIndices(m_IB);*/
