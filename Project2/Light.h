@@ -3,6 +3,7 @@
 #include "Common.h"
 #include "assert.h"
 #include <vector>
+static std::vector<D3DLIGHT9 *> m_Lights;
 class CLight
 {
 public:
@@ -19,6 +20,4 @@ public:
 	static BOOL GetSpotLight2(inoutparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * position , inparameter D3DXVECTOR3 * direction, D3DXCOLOR * color);//¾Û¹âµÆ
 	
 	static void Clear();//Çå¿ÕÄÚ´æ
-private:
-	static std::vector<D3DLIGHT9 *> m_Lights;
 };

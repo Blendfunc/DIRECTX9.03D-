@@ -1,1 +1,8 @@
-﻿
+﻿  gamedemo.cpp
+d:\directx9.03d-.git\trunk\project2\dx\include\d3d9types.h(1385): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  LitPyramid.cpp
+d:\directx9.03d-.git\trunk\project2\dx\include\d3d9types.h(1385): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\directx9.03d-.git\trunk\project2\litpyramid.cpp(51): warning C4101: “mtrl”: 未引用的局部变量
+  正在生成代码...
+  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.exe
+  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.pdb (Partial PDB)

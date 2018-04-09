@@ -73,9 +73,9 @@ void CTheRevolvingBoxCube::Init(IDirect3DDevice9 * pDevice)
 			m_IB->Unlock();
 
 			//position and aim the camera.
-			D3DXVECTOR3 position(0.0f, 0.0f, -5.0f);
+			D3DXVECTOR3 position(0.0f, 0.0f, -10.0f);
 			D3DXVECTOR3 target(0.0f, 0.0f, 0.0f);
-			D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
+			D3DXVECTOR3 up(0.0f, -1.0f, 0.0f);
 			D3DXMATRIX V;
 			D3DXMatrixLookAtLH(&V, &position, &target, &up);//È¡¾°±ä»»¾ØÕó£¨¼´¹Û²ì¾ØÕó£©
 			pDevice->SetTransform(D3DTS_VIEW, &V);

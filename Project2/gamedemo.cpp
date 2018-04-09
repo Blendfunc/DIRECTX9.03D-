@@ -1,5 +1,6 @@
 #include".\DX\Include\d3dx9.h"
 #include "cube.h"
+#include "LitPyramid.h"
 static IDirect3D9 * static_d3d9;
 static D3DCAPS9 static_d3dpp;
 static IDirect3DDevice9 * static_device;
@@ -138,20 +139,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	ShowWindow(hwnd, iCmdShow);        //显示窗口
 	UpdateWindow(hwnd);                //更新窗口
 
-	CTheRevolvingBoxCube cube;
-	cube.Init(static_device);
+	/*CTheRevolvingBoxCube cube;
+	cube.Init(static_device);*/
+	CLitPyramid clp;
+	clp.Init(static_device);
 	static float i = 0.0f;
 	while (true)
 	{
 		i = i + 0.000000001f;
-		cube.Display(i);
+		clp.Display(i);
 	}
+	
 	while (GetMessage(&msg, NULL, 0, 0))        //从消息队列中获取消息
 	{
 		if (msg.message != WM_QUIT)
 		{
-			i = i + 0.0001f;
-			cube.Display(i);
+			/*i = i + 0.0001f;*/
+			/*cube.Display(i);*/
 			if (::PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
 			{
 				

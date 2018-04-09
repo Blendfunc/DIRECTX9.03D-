@@ -7,8 +7,9 @@ BOOL CCalculateNormalVectorOfThePlane::ComputeNormal(inparameter D3DXVECTOR3 * p
 		D3DXVECTOR3 u = *p1 - *p0;
 		D3DXVECTOR3 v = *p2 - *p0;
 		*pout = nullptr;
+		*pout = new D3DXVECTOR3;
 		D3DXVec3Cross(*pout, &u, &v);
-		assert(*pout);
+		/*assert(*pout);*/
 		D3DXVec3Normalize(*pout, *pout);
 		return TRUE;
 	}

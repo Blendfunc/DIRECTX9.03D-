@@ -3,6 +3,8 @@
 #include "Common.h"
 #include "CalculateNormalVectorOfThePlane.h"
 #include "Materials.h"
+#include "Light.h"
+#include "Color.h"
 
 struct LitPyramidVertex
 {
@@ -22,6 +24,7 @@ public:
 	CLitPyramid();
 	~CLitPyramid();
 	void Init(inparameter IDirect3DDevice9 * pDevice);
+	void Display(float timeDelta);
 protected:
 	void calc(LitPyramidVertex & lpv1 , LitPyramidVertex & lpv2 , LitPyramidVertex & lpv3 , float f1 , float f2 , float f3 , float _f1 , float _f2 , float _f3 , float __f1 , float __f2 , float __f3);
 private:
