@@ -6,6 +6,9 @@
 class CLight
 {
 public:
+	CLight();
+	~CLight();
+public:
 	static D3DLIGHT9 * GetDirectionalLight(D3DXVECTOR3 * direction , D3DXCOLOR * color);//方向光
 	static BOOL GetDirectionalLight2(inoutparameter D3DLIGHT9 ** lightout, inparameter D3DXVECTOR3 * direction, D3DCOLOR * color);//方向光
 

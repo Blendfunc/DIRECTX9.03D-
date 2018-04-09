@@ -10,5 +10,7 @@ BOOL CCalculateNormalVectorOfThePlane::ComputeNormal(inparameter D3DXVECTOR3 * p
 		D3DXVec3Cross(*pout, &u, &v);
 		assert(*pout);
 		D3DXVec3Normalize(*pout, *pout);
+		return TRUE;
 	}
+	return FALSE;
 }

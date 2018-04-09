@@ -1,5 +1,14 @@
 #include "Light.h"
 
+CLight::CLight()
+{
+}
+
+CLight::~CLight()
+{
+	Clear();
+}
+
 D3DLIGHT9 * CLight::GetDirectionalLight(D3DXVECTOR3 * direction, D3DXCOLOR * color)
 {
 	D3DLIGHT9 * plight = new D3DLIGHT9;
@@ -30,7 +39,7 @@ BOOL CLight::GetDirectionalLight2(inoutparameter D3DLIGHT9 ** lightout, inparame
 			plight->Diffuse = *color;
 			plight->Specular = (*color) * 0.6f;
 			plight->Direction = *direction;
-			/*m_Lights.push_back(plight);*/
+			/*m_Lights.push_back(plight);*//*这里为什么注释掉*/
 			return TRUE;
 		}
 	}

@@ -120,6 +120,7 @@
     <ClCompile Include="gamedemo.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LitPyramid.cpp" />
+    <ClCompile Include="Materials.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculateNormalVectorOfThePlane.h" />
@@ -127,6 +128,7 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LitPyramid.h" />
+    <ClInclude Include="Materials.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

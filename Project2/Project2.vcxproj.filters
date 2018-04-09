@@ -33,6 +33,9 @@
     <ClCompile Include="CalculateNormalVectorOfThePlane.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="Materials.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LitPyramid.h">
@@ -48,6 +51,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CalculateNormalVectorOfThePlane.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Materials.h">
       <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
