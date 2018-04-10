@@ -35,9 +35,9 @@ BOOL CLight::GetDirectionalLight2(inoutparameter D3DLIGHT9 ** lightout, inparame
 			*lightout = plight;
 			::ZeroMemory(plight , sizeof(plight));
 			plight->Type = D3DLIGHT_DIRECTIONAL;
-			plight->Ambient = (*color) * 0.4f;
+			plight->Ambient = (*color) * 0.6f;
 			plight->Diffuse = *color;
-			plight->Specular = (*color) * 0.6f;
+			plight->Specular = (*color) * 0.3f;
 			plight->Direction = *direction;
 			/*m_Lights.push_back(plight);*//*这里为什么注释掉*/
 			return TRUE;

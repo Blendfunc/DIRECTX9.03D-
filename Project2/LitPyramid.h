@@ -11,7 +11,7 @@ struct LitPyramidVertex
 	//顶点，法线，但是结构中没有包含表示颜色的成员变量
 	//这是因为我们将用光照来计算顶点的颜色 
 	float x, y, z;//顶点
-	float _nx, _ny, _nz;//法线
+	float _nx, _ny, _nz;//法线，Direct3D需要知道顶点的法线方向，以确定光线到达表面时的入射角
 	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_NORMAL;
 };
 

@@ -51,14 +51,14 @@ void CLitPyramid::Init(inparameter IDirect3DDevice9 * pDevice)
 		D3DMATERIAL9 mtrl;
 		Materials m;
 		D3DMATERIAL9 * dm9 = nullptr;
-		m.GetMaterials(red, &dm9);
+		m.GetMaterials(blue, &dm9);
 		assert(dm9);
 		pDevice->SetMaterial(dm9);
 
 		//光源
 		D3DLIGHT9 * light = nullptr;
 		D3DXVECTOR3 direction(1.0f, 0.0f, 0.0f);
-		D3DXCOLOR color = _COLOR_::WHITE;
+		D3DXCOLOR color = _COLOR_::BLUE;
 		CLight::GetDirectionalLight2(&light, &direction, &color);
 		assert(light);
 		pDevice->SetLight(0, light);
@@ -103,7 +103,7 @@ void CLitPyramid::Display(float timeDelta)
 		m_pDevice->BeginScene();
 		m_pDevice->SetStreamSource(0, m_VB, 0, sizeof(LitPyramidVertex));
 		/*m_pDevice->SetIndices(m_IB);*/
-		m_pDevice->SetFVF(D3DFVF_XYZ);
+		m_pDevice->SetFVF(LitPyramidVertex::FVF);//一定要包含D3DFVF_NORMAL这个否则看不出来有没有光线
 		m_pDevice->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 4);
 		m_pDevice->EndScene();
 		m_pDevice->Present(0, 0, 0, 0);
