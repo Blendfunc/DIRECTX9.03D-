@@ -11,11 +11,11 @@ enum Material
 	blue = 3 ,
 	yellow = 4
 };
-class Materials
+class CMaterials
 {
 public:
-	Materials();
-	~Materials();
+	CMaterials();
+	~CMaterials();
 	BOOL GetMaterials(inparameter Material m , inparameter outparameter D3DMATERIAL9 ** material);
 	BOOL GetMaterials(inparameter D3DXCOLOR a, inparameter D3DXCOLOR d, inparameter D3DXCOLOR s, inparameter D3DXCOLOR e, inparameter float p , inparameter outparameter D3DMATERIAL9 ** material);
 protected:

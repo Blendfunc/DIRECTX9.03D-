@@ -117,20 +117,26 @@
   <ItemGroup>
     <ClCompile Include="CalculateNormalVectorOfThePlane.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="CopyData.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="gamedemo.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LitPyramid.cpp" />
     <ClCompile Include="Materials.cpp" />
+    <ClCompile Include="TextureDemo.cpp" />
+    <ClCompile Include="_GraphInterface_.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculateNormalVectorOfThePlane.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="CopyData.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LitPyramid.h" />
     <ClInclude Include="Materials.h" />
+    <ClInclude Include="TextureDemo.h" />
+    <ClInclude Include="_GraphInterface_.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -49,7 +49,7 @@ void CLitPyramid::Init(inparameter IDirect3DDevice9 * pDevice)
 
 		//²ÄÖÊ
 		D3DMATERIAL9 mtrl;
-		Materials m;
+		CMaterials m;
 		D3DMATERIAL9 * dm9 = nullptr;
 		m.GetMaterials(blue, &dm9);
 		assert(dm9);

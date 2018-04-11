@@ -15,16 +15,16 @@ dm9->Specular = c;\//指定材质对镜面光的反射率
 dm9->Emissive = d;\//该分量用于增强物体的亮度，使之看起来好像可以自己发光
 dm9->Power = e;\//指定镜面高光点的锐度，该值越大，高光点的锐度越大*/
 
-Materials::Materials()
+CMaterials::CMaterials()
 {
 }
 
-Materials::~Materials()
+CMaterials::~CMaterials()
 {
 	Clear();
 }
 
-BOOL Materials::GetMaterials(inparameter Material m, inparameter outparameter D3DMATERIAL9 ** material)
+BOOL CMaterials::GetMaterials(inparameter Material m, inparameter outparameter D3DMATERIAL9 ** material)
 {
 	if (nullptr == material) return FALSE;
 	if (m == red)
@@ -55,7 +55,7 @@ BOOL Materials::GetMaterials(inparameter Material m, inparameter outparameter D3
 	return FALSE;
 }
 
-BOOL Materials::GetMaterials(inparameter D3DXCOLOR a, inparameter D3DXCOLOR d, inparameter D3DXCOLOR s, inparameter D3DXCOLOR e, inparameter float p, inparameter outparameter D3DMATERIAL9 ** material)
+BOOL CMaterials::GetMaterials(inparameter D3DXCOLOR a, inparameter D3DXCOLOR d, inparameter D3DXCOLOR s, inparameter D3DXCOLOR e, inparameter float p, inparameter outparameter D3DMATERIAL9 ** material)
 {
 	if (nullptr == material)return FALSE;
 	D3DMATERIAL9 * mtrl = new D3DMATERIAL9;
@@ -73,6 +73,6 @@ BOOL Materials::GetMaterials(inparameter D3DXCOLOR a, inparameter D3DXCOLOR d, i
 //	return 0;
 //}
 
-void Materials::Clear()
+void CMaterials::Clear()
 {
 }

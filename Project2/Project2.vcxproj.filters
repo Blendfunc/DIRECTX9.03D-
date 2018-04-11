@@ -39,6 +39,15 @@
     <ClCompile Include="Color.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="TextureDemo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="_GraphInterface_.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyData.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LitPyramid.h">
@@ -60,6 +69,15 @@
       <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureDemo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="_GraphInterface_.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyData.h">
       <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
