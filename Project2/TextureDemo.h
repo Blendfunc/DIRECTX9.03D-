@@ -3,14 +3,8 @@
 #include "_GraphInterface_.h"
 #include "assert.h"
 #include "CalculateNormalVectorOfThePlane.h"
+#include "Common.h"
 
-typedef struct TextureStruct 
-{
-	float _x, _y, _z;
-	float _nx, _ny, _nz;
-	float _u, _v;
-	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_TEX1;
-};
 
 class CTextureDemo : public _CGraphInterface_
 {

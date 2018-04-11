@@ -128,9 +128,9 @@ void InitializeLitPyramidVertex(inparameter outparameter LitPyramidVertex * p, D
 {
 	if (p && point && normal)
 	{
-		p->x = point->x;
-		p->y = point->y;
-		p->z = point->z;
+		p->_x = point->x;
+		p->_y = point->y;
+		p->_z = point->z;
 		p->_nx = normal->x;
 		p->_ny = normal->y;
 		p->_nz = normal->z;

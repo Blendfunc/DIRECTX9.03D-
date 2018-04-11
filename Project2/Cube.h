@@ -1,20 +1,10 @@
 #pragma once
 #include".\DX\Include\d3dx9.h"
 #include"assert.h"
+#include"Common.h"
 //该程序绘制了一个旋转的线框立方体
 //成员变量以下划线为前缀
-struct VERTEXCUBE
-{
-	VERTEXCUBE() {}
-	VERTEXCUBE(float x, float y, float z)
-	{
-		_x = x; _y = y; _z = z;
-	}
-	float _x, _y, _z;
-	static const DWORD FVF = D3DFVF_XYZ;//这里结构体sizeof计算的时候，这个变量FVF是如何计算的
-};
 
-//const DWORD VERTEXCUBE::FVF = D3DFVF_XYZ;
 
 class CTheRevolvingBoxCube
 {

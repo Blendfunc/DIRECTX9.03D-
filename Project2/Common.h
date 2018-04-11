@@ -25,3 +25,48 @@ class interfacename \
 
 #define _FUNCTION_NAME_(name,rv,...) \
 virtual rv name (__VA_ARGS__) = 0 ;
+
+struct VERTEXCUBE
+{
+	VERTEXCUBE() {}
+	VERTEXCUBE(float x, float y, float z)
+	{
+		_x = x; _y = y; _z = z;
+	}
+	float _x, _y, _z;
+	static const DWORD FVF = D3DFVF_XYZ;//这里结构体sizeof计算的时候，这个变量FVF是如何计算的
+};
+
+//const DWORD VERTEXCUBE::FVF = D3DFVF_XYZ;
+
+struct LitPyramidVertex
+{
+	//顶点，法线，但是结构中没有包含表示颜色的成员变量
+	//这是因为我们将用光照来计算顶点的颜色 
+	float _x, _y, _z;//顶点
+	float _nx, _ny, _nz;//法线，Direct3D需要知道顶点的法线方向，以确定光线到达表面时的入射角
+	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_NORMAL;
+};
+
+typedef struct TextureStruct
+{
+	float _x, _y, _z;
+	float _nx, _ny, _nz;
+	float _u, _v;
+	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_TEX1;
+};
+
+enum _type_
+{
+	cubetype = 0 ,
+	litpyramidtype = 1 ,
+	texturedemo
+};
+
+typedef struct vertextype
+{
+	_type_ type;
+	void * data;
+};
+
+

@@ -21,7 +21,7 @@ void CTextureDemo::Init(IDirect3DDevice9 * pDevice)
 		assert(m_VB);
 		m_VB->Lock(0, 0, (void**)&pTS, 0);
 		assert(pTS);
-		pTS[0] = 
+		/*pTS[0] = */
 	}
 }
 
