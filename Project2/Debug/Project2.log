@@ -1,13 +1,15 @@
-﻿  CopyData.cpp
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\dx\include\d3d9types.h(1385): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\common.h(57): warning C4091: “typedef ”: 没有声明变量时忽略“TextureStruct”的左侧
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\common.h(70): warning C4091: “typedef ”: 没有声明变量时忽略“vertextype”的左侧
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(97): warning C4003: “_CUBEDATA_”宏的实参不足
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(97): error C2839: 重载的“operator ->”的无效返回类型“float *”
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(97): error C2039: “_x”: 不是“std::shared_ptr<float>”的成员
-  d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(85): note: 参见“std::shared_ptr<float>”的声明
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(97): error C2059: 语法错误:“;”
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(97): error C2039: “_y”: 不是“std::shared_ptr<float>”的成员
-  d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(85): note: 参见“std::shared_ptr<float>”的声明
-d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(97): error C2039: “_z”: 不是“std::shared_ptr<float>”的成员
-  d:\directx 9.0 3d游戏开发编程基础\directx9.03d-.git\trunk\project2\copydata.cpp(85): note: 参见“std::shared_ptr<float>”的声明
+﻿  TextureDemo.cpp
+d:\directx9.03d-.git\trunk\project2\dx\include\d3d9types.h(1385): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\directx9.03d-.git\trunk\project2\common.h(57): warning C4091: “typedef ”: 没有声明变量时忽略“TextureStruct”的左侧
+d:\directx9.03d-.git\trunk\project2\texturedemo.cpp(58): warning C4305: “参数”: 从“double”到“FLOAT”截断
+  CopyData.cpp
+d:\directx9.03d-.git\trunk\project2\dx\include\d3d9types.h(1385): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\directx9.03d-.git\trunk\project2\common.h(57): warning C4091: “typedef ”: 没有声明变量时忽略“TextureStruct”的左侧
+d:\directx9.03d-.git\trunk\project2\copydata.cpp(114): warning C4002: “_PYRAMID_”宏的实参太多
+d:\directx9.03d-.git\trunk\project2\copydata.cpp(120): warning C4002: “_TEXTURE_”宏的实参太多
+  正在生成代码...
+d:\directx9.03d-.git\trunk\project2\copydata.cpp(122): warning C4715: “CCopyData::InitD3DVertexData”: 不是所有的控件路径都返回值
+  正在跳过...(未检测到相关更改)
+  gamedemo.cpp
+  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.exe
+  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.pdb (Partial PDB)

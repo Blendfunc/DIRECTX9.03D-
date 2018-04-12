@@ -63,7 +63,7 @@ enum _type_
 	texturedemo
 };
 
-typedef struct vertextype
+struct vertextype
 {
 	_type_ type;
 	void * data;

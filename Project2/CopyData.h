@@ -12,4 +12,5 @@ public:
 	~CCopyData();
 public:
 	BOOL InitD3DVertexData(int count , inparameter  void * pVertex , ...);//这个方法只接受数字参数，非数字参数会返回失败
+	float SumSumSumSum(float count, ...);
 };

@@ -1,6 +1,7 @@
 #include".\DX\Include\d3dx9.h"
 #include "cube.h"
 #include "LitPyramid.h"
+#include "TextureDemo.h"
 static IDirect3D9 * static_d3d9;
 static D3DCAPS9 static_d3dpp;
 static IDirect3DDevice9 * static_device;
@@ -141,13 +142,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 
 	/*CTheRevolvingBoxCube cube;
 	cube.Init(static_device);*/
-	CLitPyramid clp;
-	clp.Init(static_device);
+	/*CLitPyramid clp;*/
+	CTextureDemo ctd;
+	/*clp.Init(static_device);*/
+	ctd.Init(static_device);
 	static float i = 0.0f;
 	while (true)
 	{
 		i = i + 0.000001f;
-		clp.Display(i);
+		ctd.Display(i);
 	}
 	
 	while (GetMessage(&msg, NULL, 0, 0))        //从消息队列中获取消息

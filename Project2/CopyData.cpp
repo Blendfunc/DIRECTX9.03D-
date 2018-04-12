@@ -58,14 +58,24 @@ if(n == 8) \
 _TEXTURE_(_ONE_STEP_,_TWO_STEP_,_THREE_STEP_) \
 }
 
-#define _GETDATA3_() \
-_CUBEDATA_(_ONE_STEP_)
+#define __CUBEDATA__(a) _CUBEDATA_(d,p1,p2,p3)
+#define _GETDATA3_(v,p) \
+_CUBEDATA_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)))
 
 #define _GETDATA6_(v,p) \
-_PYRAMID_(_ONE_STEP_,_TWO_STEP_)
+_PYRAMID_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)),((v)->at(3)),((v)->at(4)),((v)->at(5)),((v)->at(6)))
 
 #define _GETDATA8_(v,p) \
-_TEXTURE_(_ONE_STEP_,_TWO_STEP_,_THREE_STEP_)
+_TEXTURE_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)),((v)->at(3)),((v)->at(4)),((v)->at(5)),((v)->at(6)),((v)->at(7)),((v)->at(8)))
+
+
+CCopyData::CCopyData()
+{
+}
+
+CCopyData::~CCopyData()
+{
+}
 
 BOOL CCopyData::InitD3DVertexData(int count, inparameter void * pVertex, ...)
 {
@@ -88,6 +98,7 @@ BOOL CCopyData::InitD3DVertexData(int count, inparameter void * pVertex, ...)
 		std::shared_ptr<float> pf = std::make_shared<float>(va_arg(vl, float));
 		vec.push_back(pf);
 	}
+	va_end(vl);
 	//switch type
 	vertextype * pvt = (vertextype *)pVertex;
 	if (pvt->type == cubetype)
@@ -96,16 +107,29 @@ BOOL CCopyData::InitD3DVertexData(int count, inparameter void * pVertex, ...)
 		std::vector<std::shared_ptr<float>> * v = &vec;
 		_GETDATA3_(v, p)
 	}
-	//if (pvt->type == litpyramidtype)
-	//{
-	//	LitPyramidVertex * plpv = (LitPyramidVertex *)(pvt->data);
-	//	/*LitPyramidVertex * plpv = static_cast<LitPyramidVertex *>(plpv->data);*/
-	//	_GETDATA_(6, &vec, plpv);
-	//}
-	//if (pvt->type == texturedemo)
-	//{
-	//	TextureStruct * pts = (TextureStruct *)(pvt->data);
-	//	/*TextureStruct * pts = static_cast<TextureStruct *>(pvt->data);*/
-	//	_GETDATA_(8, &vec, pts);
-	//}
+	if (pvt->type == litpyramidtype)
+	{
+		LitPyramidVertex * plpv = (LitPyramidVertex *)(pvt->data);
+		/*LitPyramidVertex * plpv = static_cast<LitPyramidVertex *>(plpv->data);*/
+		_GETDATA6_(&vec, plpv);
+	}
+	if (pvt->type == texturedemo)
+	{
+		TextureStruct * pts = (TextureStruct *)(pvt->data);
+		/*TextureStruct * pts = static_cast<TextureStruct *>(pvt->data);*/
+		_GETDATA8_(&vec, pts);
+	}
+}
+
+float CCopyData::SumSumSumSum(float count,...)
+{
+	va_list vl;
+	va_start(vl, count);
+	float Sum = 0.0f;
+	for (int _i = 0; _i < count; _i++)
+	{
+		Sum += va_arg(vl, float);
+	}
+	va_end(vl);
+	return Sum;
 }

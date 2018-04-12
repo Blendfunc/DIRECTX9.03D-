@@ -69,7 +69,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>D:\DIRECTX9.03D\DIRECTX9.03D-.git\Project2\DX\Lib\x86;D:\DirectX 9.0 3D游戏开发编程基础\DIRECTX9.03D-.git\trunk\Project2\DX\Lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\DIRECTX9.03D\DIRECTX9.03D-.git\Project2\DX\Lib\x86;D:\DirectX 9.0 3D游戏开发编程基础\DIRECTX9.03D-.git\trunk\Project2\DX\Lib\x86;D:\DIRECTX9.03D-.git\trunk\Project2\DX\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

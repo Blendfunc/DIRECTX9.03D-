@@ -4,7 +4,8 @@
 #include "assert.h"
 #include "CalculateNormalVectorOfThePlane.h"
 #include "Common.h"
-
+#include "CopyData.h"
+#include "CalculateNormalVectorOfThePlane.h"
 
 class CTextureDemo : public _CGraphInterface_
 {
