@@ -63,21 +63,22 @@ _TEXTURE_(_ONE_STEP_,_TWO_STEP_,_THREE_STEP_) \
 _CUBEDATA_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)))
 
 #define _GETDATA6_(v,p) \
-_PYRAMID_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)),((v)->at(3)),((v)->at(4)),((v)->at(5)),((v)->at(6)))
+_PYRAMID_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)),((v)->at(3)),((v)->at(4)),((v)->at(5)))
 
 #define _GETDATA8_(v,p) \
-_TEXTURE_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)),((v)->at(3)),((v)->at(4)),((v)->at(5)),((v)->at(6)),((v)->at(7)),((v)->at(8)))
+_TEXTURE_((p),((v)->at(0)),((v)->at(1)),((v)->at(2)),((v)->at(3)),((v)->at(4)),((v)->at(5)),((v)->at(6)),((v)->at(7)))
 
 
 CCopyData::CCopyData()
 {
+	_vertex = nullptr;
 }
 
 CCopyData::~CCopyData()
 {
 }
 
-BOOL CCopyData::InitD3DVertexData(int count, inparameter void * pVertex, ...)
+BOOL CCopyData::InitD3DVertexData(int count,/* inparameter void * pVertex,*/ ...)
 {
 	/*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*/
 	/*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*/
@@ -85,17 +86,18 @@ BOOL CCopyData::InitD3DVertexData(int count, inparameter void * pVertex, ...)
 	/*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*/
 	/*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*/
 	/*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*//*return 0;*/
-	if (nullptr == pVertex)
+	if (nullptr == _vertex)
 	{
 		return FALSE;
 	}
+	void * pVertex = _vertex;
 	va_list vl;
 	va_start(vl, count);
 	int i = 0;
-	std::vector<std::shared_ptr<float>> vec;
+	std::vector<std::shared_ptr<double>> vec;
 	for (int _i = 0; _i < count; _i++)
 	{
-		std::shared_ptr<float> pf = std::make_shared<float>(va_arg(vl, float));
+		std::shared_ptr<double> pf = std::make_shared<double>(va_arg(vl, double));
 		vec.push_back(pf);
 	}
 	va_end(vl);
@@ -104,7 +106,7 @@ BOOL CCopyData::InitD3DVertexData(int count, inparameter void * pVertex, ...)
 	if (pvt->type == cubetype)
 	{
 		VERTEXCUBE * p = static_cast<VERTEXCUBE *>(pvt->data);
-		std::vector<std::shared_ptr<float>> * v = &vec;
+		std::vector<std::shared_ptr<double>> * v = &vec;
 		_GETDATA3_(v, p)
 	}
 	if (pvt->type == litpyramidtype)
@@ -121,14 +123,19 @@ BOOL CCopyData::InitD3DVertexData(int count, inparameter void * pVertex, ...)
 	}
 }
 
-float CCopyData::SumSumSumSum(float count,...)
+void CCopyData::InitD3dVertexData2(void * pVertex)
+{
+	_vertex = pVertex;
+}
+
+float CCopyData::SumSumSumSum(float count,void*p,...)
 {
 	va_list vl;
 	va_start(vl, count);
-	float Sum = 0.0f;
+	double Sum = 0.0f;
 	for (int _i = 0; _i < count; _i++)
 	{
-		Sum += va_arg(vl, float);
+		Sum += va_arg(vl, double);
 	}
 	va_end(vl);
 	return Sum;

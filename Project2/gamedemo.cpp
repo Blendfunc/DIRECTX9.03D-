@@ -149,7 +149,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	static float i = 0.0f;
 	while (true)
 	{
-		i = i + 0.000001f;
+		i = i + 0.0001f;
 		ctd.Display(i);
 	}
 	

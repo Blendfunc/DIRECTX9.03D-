@@ -1,8 +1,30 @@
 #include "TextureDemo.h"
+#define _ClearDoubleNum_(_d1_,_d2_,_d3_,_d4_,_d5_,_d6_,_d7_,_d8_) \
+_d1_ = 0.0; \
+_d2_ = 0.0; \
+_d3_ = 0.0; \
+_d4_ = 0.0; \
+_d5_ = 0.0; \
+_d6_ = 0.0; \
+_d7_ = 0.0; \
+_d8_ = 0.0;
+
+#define _InitDoubleNum_() \
+double _d1_; \
+double _d2_; \
+double _d3_; \
+double _d4_; \
+double _d5_; \
+double _d6_; \
+double _d7_; \
+double _d8_;
 
 #define _InitD3DVertexData_(name1,name2,name3,_x,_y,f1,f2,f3,ccd) \
 (name1).data = (void *)(name3); \
-(ccd).InitD3DVertexData(8,(void*)(&(name1)),f1,f2,f3,(name2)->x,(name2)->y,(name2)->z,_x,_y); \
+_ClearDoubleNum_(_d1_,_d2_,_d3_,_d4_,_d5_,_d6_,_d7_,_d8_) \
+_d1_ = f1;_d2_ = f2;_d3_ = f3;_d4_ = _x;_d5_ = _y;_d6_ = (name2)->x;_d7_ = (name2)->y;_d8_ = (name2)->z; \
+(ccd).SumSumSumSum(8,(void*)(&(name1)),_d1_, _d2_, _d3_, _d6_, _d7_, _d8_, _d4_, _d5_); \
+(ccd).InitD3DVertexData(8,_d1_, _d2_, _d3_, _d6_, _d7_, _d8_, _d4_, _d5_); \
 (name1).data = (void *)(++name3);
 
 
@@ -38,8 +60,10 @@ void CTextureDemo::Init(IDirect3DDevice9 * pDevice)
 		vertextype vt;
 		vt.type = texturedemo;
 		vt.data = (void *)pTS;
-		float sum = ccd.SumSumSumSum(8.0f,1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-		_InitD3DVertexData_(vt, pv, pTS, 0.0f, 3.0f, -1.0f, -1.0f, 1.25f, ccd)
+		/*float sum = ccd.SumSumSumSum(8.0,1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0);*/
+		ccd.InitD3dVertexData2((void *)(&vt));
+		_InitDoubleNum_()
+		_InitD3DVertexData_(vt, pv, pTS, 0.0, 3.0, -1.0, -1.0, 1.25, ccd)
 		_InitD3DVertexData_(vt, pv, pTS, 0.0f, 0.0f, -1.0f, 1.0f, 1.25f, ccd)
 		_InitD3DVertexData_(vt, pv, pTS, 3.0f, 0.0f, 1.0f, 1.0f, 1.25f, ccd)
 		_InitD3DVertexData_(vt, pv, pTS, 0.0f, 3.0f, -1.0f, -1.0f, 1.25f, ccd)
