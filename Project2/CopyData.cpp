@@ -121,6 +121,11 @@ BOOL CCopyData::InitD3DVertexData(int count,/* inparameter void * pVertex,*/ ...
 		/*TextureStruct * pts = static_cast<TextureStruct *>(pvt->data);*/
 		_GETDATA8_(&vec, pts);
 	}
+	if (pvt->type == cubeextype)
+	{
+		CubeExStruct * pces = (CubeExStruct *)(pvt->data);
+		_GETDATA8_(&vec, pces);
+	}
 }
 
 void CCopyData::InitD3dVertexData2(void * pVertex)

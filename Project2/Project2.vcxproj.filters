@@ -48,6 +48,9 @@
     <ClCompile Include="CopyData.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="CubeEx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LitPyramid.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="CopyData.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeEx.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

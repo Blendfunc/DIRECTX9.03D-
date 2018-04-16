@@ -56,11 +56,25 @@ typedef struct TextureStruct
 	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_TEX1;
 };
 
+typedef struct CubeExStruct
+{
+	float _x, _y, _z;
+	float _nx, _ny, _nz;
+	float _u, _v;
+	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_TEX1;
+	CubeExStruct() {}
+	CubeExStruct(float x, float y, float z, float nx, float ny, float nz, float u, float v)
+	{
+		_x = x; _y = y; _z = z; _nx = nx; _ny = ny; _nz = nz; _u = u; _v = v;
+	}
+};
+
 enum _type_
 {
 	cubetype = 0 ,
 	litpyramidtype = 1 ,
-	texturedemo
+	texturedemo = 2 ,
+	cubeextype
 };
 
 struct vertextype

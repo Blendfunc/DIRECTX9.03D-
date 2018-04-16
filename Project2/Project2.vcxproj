@@ -119,6 +119,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="CopyData.cpp" />
     <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="CubeEx.cpp" />
     <ClCompile Include="gamedemo.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LitPyramid.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="CopyData.h" />
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="CubeEx.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LitPyramid.h" />
     <ClInclude Include="Materials.h" />
