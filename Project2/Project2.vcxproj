@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CalculateNormalVectorOfThePlane.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="CopyData.cpp" />
     <ClCompile Include="Cube.cpp" />
@@ -124,11 +125,14 @@
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LitPyramid.cpp" />
     <ClCompile Include="Materials.cpp" />
+    <ClCompile Include="TestCode.cpp" />
     <ClCompile Include="TextureDemo.cpp" />
     <ClCompile Include="_GraphInterface_.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculateNormalVectorOfThePlane.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraProperty.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CopyData.h" />

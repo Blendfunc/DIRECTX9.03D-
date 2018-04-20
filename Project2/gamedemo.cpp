@@ -148,10 +148,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	/*clp.Init(static_device);*/
 	CCubeEx cce;
 	cce.Init(static_device);
-	static float i = 0.0f;
+	static float i = 1.0f;
 	while (true)
 	{
-		i = i + 0.0000001f;
+		/*i = i + 0.0001f;*/
 		cce.Display(i);
 	}
 	

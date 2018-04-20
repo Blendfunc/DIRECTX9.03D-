@@ -1,6 +1,8 @@
 #include "CubeEx.h"
 #include "Common.h"
 #include "CalculateNormalVectorOfThePlane.h"
+#include "Camera.h"
+#define USECAMERA
 
 CCubeEx::CCubeEx()
 {
@@ -14,6 +16,14 @@ CCubeEx::CCubeEx()
 	_tcscpy(m_Texture1, "D:\\DIRECTX9.03D-.git\\trunk\\Project2\\Debug\\63.jpg");
 	_tcscpy(m_Texture2, "D:\\DIRECTX9.03D-.git\\trunk\\Project2\\Debug\\62.jpg");
 	_tcscpy(m_Texture3, "D:\\DIRECTX9.03D-.git\\trunk\\Project2\\Debug\\66.jpg");
+	D3DXVECTOR3 pos(0.0f, 0.f, -4.0f);
+	D3DXVECTOR3 look(0.0f, 0.0f, 1.0f);
+	D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
+	D3DXVECTOR3 right(-1.0f, 0.0f, 0.0f);
+	CCamera::property.static_pos.x = pos.x; CCamera::property.static_pos.y = pos.y; CCamera::property.static_pos.z = pos.z;
+	CCamera::property.static_look.x = look.x; CCamera::property.static_look.z = look.z; CCamera::property.static_look.y = look.y;
+	CCamera::property.static_right.x = right.x; CCamera::property.static_right.y = right.y; CCamera::property.static_right.z = right.z;
+	CCamera::property.static_up.x = up.x; CCamera::property.static_up.y = up.y; CCamera::property.static_up.z = up.z;
 }
 
 CCubeEx::~CCubeEx()
@@ -30,6 +40,7 @@ void CCubeEx::Init(IDirect3DDevice9 * pDevice)
 		assert(mesh);
 		m_Mesh = mesh;
 		CubeExStruct * pces = nullptr;
+		//¶¥µã»º´æ
 		mesh->LockVertexBuffer(0, (void**)&pces);
 		assert(pces);
 		pces[0] = CubeExStruct(-1.0f, -1.0f, -1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f);
@@ -58,6 +69,7 @@ void CCubeEx::Init(IDirect3DDevice9 * pDevice)
 		pces[23] = CubeExStruct(1.0f, -1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 		mesh->UnlockVertexBuffer();
 		WORD * pword = nullptr;
+		//Ë÷Òý»º´æ
 		mesh->LockIndexBuffer(0, (void **)&pword);
 		/*0*/
 		pword[0] = 0; pword[1] = 1; pword[2] = 2;
@@ -77,6 +89,7 @@ void CCubeEx::Init(IDirect3DDevice9 * pDevice)
 
 		mesh->UnlockIndexBuffer();
 		DWORD * _pword = nullptr;
+		//ÊôÐÔ»º´æ
 		mesh->LockAttributeBuffer(0, &_pword);
 		for (int a = 0; a < 4; a++)
 		{
@@ -127,7 +140,7 @@ void CCubeEx::Init(IDirect3DDevice9 * pDevice)
 		// Set camera.
 		//
 
-		D3DXVECTOR3 pos(0.0f, 0.f, -4.0f);
+		D3DXVECTOR3 pos(0.0f, 0.0f, -4.0f);
 		D3DXVECTOR3 target(0.0f, 0.0f, 0.0f);
 		D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
 
@@ -162,7 +175,7 @@ void CCubeEx::Display(float timeDelta)
 		//
 		// Update: Rotate the cube.
 		//
-
+#ifndef USECAMERA
 		D3DXMATRIX xRot;
 		D3DXMatrixRotationX(&xRot, D3DX_PI * 0.2f);
 
@@ -175,13 +188,47 @@ void CCubeEx::Display(float timeDelta)
 			y = 0.0f;
 
 		D3DXMATRIX World = xRot * yRot;
+#else
+		/*CCamera::*/
+		
 
+		
+		if(::GetAsyncKeyState('W'))
+		{
+			D3DXVECTOR3 pos(CCamera::property.static_pos.x , CCamera::property.static_pos.y , CCamera::property.static_pos.z);
+			D3DXVECTOR3 look(CCamera::property.static_look.x , CCamera::property.static_look.y , CCamera::property.static_look.z);
+			D3DXVECTOR3 up(CCamera::property.static_up.x , CCamera::property.static_up.y , CCamera::property.static_up.z);
+			D3DXVECTOR3 right(CCamera::property.static_right.x , CCamera::property.static_right.y , CCamera::property.static_right.z);
+			float angle = /*(D3DX_PI / 18.0f) + */timeDelta;
+			D3DXMATRIX * pm = nullptr;
+			D3DXVec3Cross(&right, &look, &up);
+			/*CCamera::GetBobbingUpAndDownMatrix(&pm, &angle, &right, &up, &look, &pos);*/
+			CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos);
+			assert(pm);
+			D3DXMATRIX World(*pm);
+			delete pm;
+			m_pDevice->SetTransform(D3DTS_WORLD, &World);
+			m_pDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0x00000000, 1.0f, 0);
+			m_pDevice->BeginScene();
+
+			for (int i = 0; i < 3; i++)
+			{
+				m_pDevice->SetTexture(0, m_pTexture3[i]);
+				m_Mesh->DrawSubset(i);
+			}
+
+			m_pDevice->EndScene();
+			m_pDevice->Present(0, 0, 0, 0);
+		}
+#endif
+#ifndef USECAMERA
 		m_pDevice->SetTransform(D3DTS_WORLD, &World);
+#endif
 
 		//
 		// Render
 		//
-
+#ifndef USECAMERA
 		m_pDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0x00000000, 1.0f, 0);
 		m_pDevice->BeginScene();
 
@@ -193,5 +240,6 @@ void CCubeEx::Display(float timeDelta)
 
 		m_pDevice->EndScene();
 		m_pDevice->Present(0, 0, 0, 0);
+#endif
 	}
 }
