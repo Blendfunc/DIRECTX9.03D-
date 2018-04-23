@@ -1,7 +1,6 @@
 #include "CubeEx.h"
 #include "Common.h"
 #include "CalculateNormalVectorOfThePlane.h"
-#include "Camera.h"
 #define USECAMERA
 
 CCubeEx::CCubeEx()
@@ -20,10 +19,11 @@ CCubeEx::CCubeEx()
 	D3DXVECTOR3 look(0.0f, 0.0f, 1.0f);
 	D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
 	D3DXVECTOR3 right(-1.0f, 0.0f, 0.0f);
-	CCamera::property.static_pos.x = pos.x; CCamera::property.static_pos.y = pos.y; CCamera::property.static_pos.z = pos.z;
-	CCamera::property.static_look.x = look.x; CCamera::property.static_look.z = look.z; CCamera::property.static_look.y = look.y;
-	CCamera::property.static_right.x = right.x; CCamera::property.static_right.y = right.y; CCamera::property.static_right.z = right.z;
-	CCamera::property.static_up.x = up.x; CCamera::property.static_up.y = up.y; CCamera::property.static_up.z = up.z;
+	CCamera::InitCamera(&m_CameraPrpperty);
+	m_CameraPrpperty.static_pos.x = pos.x; m_CameraPrpperty.static_pos.y = pos.y; m_CameraPrpperty.static_pos.z = pos.z;
+	m_CameraPrpperty.static_look.x = look.x; m_CameraPrpperty.static_look.z = look.z; m_CameraPrpperty.static_look.y = look.y;
+	m_CameraPrpperty.static_right.x = right.x; m_CameraPrpperty.static_right.y = right.y; m_CameraPrpperty.static_right.z = right.z;
+	m_CameraPrpperty.static_up.x = up.x; m_CameraPrpperty.static_up.y = up.y; m_CameraPrpperty.static_up.z = up.z;
 }
 
 CCubeEx::~CCubeEx()
@@ -195,10 +195,10 @@ void CCubeEx::Display(float timeDelta)
 		
 		if(::GetAsyncKeyState('W'))
 		{
-			D3DXVECTOR3 pos(CCamera::property.static_pos.x , CCamera::property.static_pos.y , CCamera::property.static_pos.z);
-			D3DXVECTOR3 look(CCamera::property.static_look.x , CCamera::property.static_look.y , CCamera::property.static_look.z);
-			D3DXVECTOR3 up(CCamera::property.static_up.x , CCamera::property.static_up.y , CCamera::property.static_up.z);
-			D3DXVECTOR3 right(CCamera::property.static_right.x , CCamera::property.static_right.y , CCamera::property.static_right.z);
+			D3DXVECTOR3 pos(m_CameraPrpperty.static_pos.x , m_CameraPrpperty.static_pos.y , m_CameraPrpperty.static_pos.z);
+			D3DXVECTOR3 look(m_CameraPrpperty.static_look.x , m_CameraPrpperty.static_look.y , m_CameraPrpperty.static_look.z);
+			D3DXVECTOR3 up(m_CameraPrpperty.static_up.x , m_CameraPrpperty.static_up.y , m_CameraPrpperty.static_up.z);
+			D3DXVECTOR3 right(m_CameraPrpperty.static_right.x , m_CameraPrpperty.static_right.y , m_CameraPrpperty.static_right.z);
 			float angle = /*(D3DX_PI / 18.0f) + */timeDelta;
 			D3DXMATRIX * pm = nullptr;
 			D3DXVec3Cross(&right, &look, &up);
@@ -218,6 +218,7 @@ void CCubeEx::Display(float timeDelta)
 			}
 
 			m_pDevice->EndScene();
+			Sleep(1000);
 			m_pDevice->Present(0, 0, 0, 0);
 		}
 #endif

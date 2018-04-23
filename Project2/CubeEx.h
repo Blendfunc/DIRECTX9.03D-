@@ -8,6 +8,7 @@
 #include "color.h"
 #include "Light.h"
 #include "Materials.h"
+#include "Camera.h"
 
 class CCubeEx : public _CGraphInterface_
 {
@@ -29,4 +30,6 @@ private:
 	ID3DXMesh * m_Mesh;
 
 	IDirect3DTexture9 * m_pTexture3[3];
+private:
+	CCameraProperty m_CameraPrpperty;
 };

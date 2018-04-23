@@ -1,13 +1,6 @@
-﻿  Camera.cpp
-d:\directx9.03d-.git\trunk\project2\common.h(57): warning C4091: “typedef ”: 没有声明变量时忽略“TextureStruct”的左侧
-d:\directx9.03d-.git\trunk\project2\common.h(70): warning C4091: “typedef ”: 没有声明变量时忽略“CubeExStruct”的左侧
-  正在生成代码...
-  正在编译...
-  CubeEx.cpp
+﻿  CubeEx.cpp
 d:\directx9.03d-.git\trunk\project2\common.h(57): warning C4091: “typedef ”: 没有声明变量时忽略“TextureStruct”的左侧
 d:\directx9.03d-.git\trunk\project2\common.h(70): warning C4091: “typedef ”: 没有声明变量时忽略“CubeExStruct”的左侧
 d:\directx9.03d-.git\trunk\project2\cubeex.cpp(123): warning C4101: “mtrl”: 未引用的局部变量
-  正在生成代码...
-Camera.obj : error LNK2001: 无法解析的外部符号 "public: static class CCameraProperty CCamera::property" (?property@CCamera@@2VCCameraProperty@@A)
-CubeEx.obj : error LNK2001: 无法解析的外部符号 "public: static class CCameraProperty CCamera::property" (?property@CCamera@@2VCCameraProperty@@A)
-D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.exe : fatal error LNK1120: 1 个无法解析的外部命令
+  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.exe
+  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.pdb (Partial PDB)
