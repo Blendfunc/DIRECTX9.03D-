@@ -228,13 +228,13 @@ void CCubeEx::Display(float timeDelta)
 		if(::GetAsyncKeyState('A'))
 		{
 			//◊Û“∆
-			PROC(CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos));
+			PROC(CCamera::GetLeftOrRightMoveMatrix(&pm, &angle, &right, &up, &look, &pos));
 		}
 		if(::GetAsyncKeyState('D'))
 		{
 			//”““∆
 			timeDelta = -timeDelta;
-			PROC(CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos));		
+			PROC(CCamera::GetLeftOrRightMoveMatrix(&pm, &angle, &right, &up, &look, &pos));
 		}
 		if(::GetAsyncKeyState('Q'))
 		{
