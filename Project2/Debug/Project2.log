@@ -1,6 +1,7 @@
 ﻿  CubeEx.cpp
 d:\directx9.03d-.git\trunk\project2\common.h(57): warning C4091: “typedef ”: 没有声明变量时忽略“TextureStruct”的左侧
 d:\directx9.03d-.git\trunk\project2\common.h(70): warning C4091: “typedef ”: 没有声明变量时忽略“CubeExStruct”的左侧
-d:\directx9.03d-.git\trunk\project2\cubeex.cpp(123): warning C4101: “mtrl”: 未引用的局部变量
+d:\directx9.03d-.git\trunk\project2\cubeex.cpp(28): warning C4010: 单行注释包含行继续符
+d:\directx9.03d-.git\trunk\project2\cubeex.cpp(147): warning C4101: “mtrl”: 未引用的局部变量
   Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.exe
   Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.pdb (Partial PDB)

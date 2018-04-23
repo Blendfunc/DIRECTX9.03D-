@@ -2,6 +2,30 @@
 #include "Common.h"
 #include "CalculateNormalVectorOfThePlane.h"
 #define USECAMERA
+#define PROC(a) \
+float angle = /*(D3DX_PI / 18.0f) + */timeDelta; \
+D3DXMATRIX * pm = nullptr; \
+D3DXVECTOR3 pos(m_CameraPrpperty.static_pos.x , m_CameraPrpperty.static_pos.y , m_CameraPrpperty.static_pos.z); \
+D3DXVECTOR3 look(m_CameraPrpperty.static_look.x, m_CameraPrpperty.static_look.y, m_CameraPrpperty.static_look.z); \
+D3DXVECTOR3 up(m_CameraPrpperty.static_up.x, m_CameraPrpperty.static_up.y, m_CameraPrpperty.static_up.z); \
+D3DXVECTOR3 right(m_CameraPrpperty.static_right.x, m_CameraPrpperty.static_right.y, m_CameraPrpperty.static_right.z); \
+a; \
+assert(pm); \
+D3DXMATRIX World(*pm); \
+delete pm; \
+m_pDevice->SetTransform(D3DTS_WORLD, &World); \
+m_pDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0x00000000, 1.0f, 0); \
+m_pDevice->BeginScene(); \
+for (int i = 0; i < 3; i++) \
+{ \
+	m_pDevice->SetTexture(0, m_pTexture3[i]); \
+	m_Mesh->DrawSubset(i); \
+} \
+m_pDevice->EndScene(); \
+Sleep(1000); \
+m_pDevice->Present(0, 0, 0, 0); \
+//D3DXVec3Cross(&right, &look, &up); \
+/*CCamera::GetBobbingUpAndDownMatrix(&pm, &angle, &right, &up, &look, &pos);*/
 
 CCubeEx::CCubeEx()
 {
@@ -189,37 +213,72 @@ void CCubeEx::Display(float timeDelta)
 
 		D3DXMATRIX World = xRot * yRot;
 #else
-		/*CCamera::*/
-		
-
-		
+		/*CCamera::*/		
 		if(::GetAsyncKeyState('W'))
 		{
-			D3DXVECTOR3 pos(m_CameraPrpperty.static_pos.x , m_CameraPrpperty.static_pos.y , m_CameraPrpperty.static_pos.z);
-			D3DXVECTOR3 look(m_CameraPrpperty.static_look.x , m_CameraPrpperty.static_look.y , m_CameraPrpperty.static_look.z);
-			D3DXVECTOR3 up(m_CameraPrpperty.static_up.x , m_CameraPrpperty.static_up.y , m_CameraPrpperty.static_up.z);
-			D3DXVECTOR3 right(m_CameraPrpperty.static_right.x , m_CameraPrpperty.static_right.y , m_CameraPrpperty.static_right.z);
-			float angle = /*(D3DX_PI / 18.0f) + */timeDelta;
-			D3DXMATRIX * pm = nullptr;
-			D3DXVec3Cross(&right, &look, &up);
-			/*CCamera::GetBobbingUpAndDownMatrix(&pm, &angle, &right, &up, &look, &pos);*/
-			CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos);
-			assert(pm);
-			D3DXMATRIX World(*pm);
-			delete pm;
-			m_pDevice->SetTransform(D3DTS_WORLD, &World);
-			m_pDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0x00000000, 1.0f, 0);
-			m_pDevice->BeginScene();
-
-			for (int i = 0; i < 3; i++)
-			{
-				m_pDevice->SetTexture(0, m_pTexture3[i]);
-				m_Mesh->DrawSubset(i);
-			}
-
-			m_pDevice->EndScene();
-			Sleep(1000);
-			m_pDevice->Present(0, 0, 0, 0);
+			//ºóÍË
+			PROC(CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('S'))
+		{
+			//Ç°½ø
+			timeDelta = -timeDelta;
+			PROC(CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('A'))
+		{
+			//×óÒÆ
+			PROC(CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('D'))
+		{
+			//ÓÒÒÆ
+			timeDelta = -timeDelta;
+			PROC(CCamera::GetWalkMatrix(&pm, &angle, &right, &up, &look, &pos));		
+		}
+		if(::GetAsyncKeyState('Q'))
+		{
+			//ÉÏÉý
+			PROC(CCamera::GetUpOrDownMoveMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('E'))
+		{
+			//ÏÂ½µ
+			timeDelta = -timeDelta;
+			PROC(CCamera::GetUpOrDownMoveMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('I'))
+		{
+			//ÑöÍ·
+			PROC(CCamera::GetBobbingUpAndDownMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('K'))
+		{
+			//µÍÍ·
+			timeDelta = -timeDelta;
+			PROC(CCamera::GetBobbingUpAndDownMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('J'))
+		{
+			//×óÆ«
+			PROC(CCamera::GetBobbingLeftAndRightMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('L'))
+		{
+			//ÓÒÆ«
+			timeDelta = -timeDelta;
+			PROC(CCamera::GetBobbingLeftAndRightMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('U'))
+		{
+			//×ó·­
+			PROC(CCamera::GetRotateMatrix(&pm, &angle, &right, &up, &look, &pos));
+		}
+		if(::GetAsyncKeyState('O'))
+		{
+			//ÓÒ·­
+			timeDelta = -timeDelta;
+			PROC(CCamera::GetRotateMatrix(&pm, &angle, &right, &up, &look, &pos));
 		}
 #endif
 #ifndef USECAMERA
