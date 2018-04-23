@@ -22,8 +22,8 @@ for (int i = 0; i < 3; i++) \
 	m_Mesh->DrawSubset(i); \
 } \
 m_pDevice->EndScene(); \
-Sleep(1000); \
-m_pDevice->Present(0, 0, 0, 0); \
+Sleep(10); \
+m_pDevice->Present(0, 0, 0, 0);s
 //D3DXVec3Cross(&right, &look, &up); \
 /*CCamera::GetBobbingUpAndDownMatrix(&pm, &angle, &right, &up, &look, &pos);*/
 
@@ -151,6 +151,7 @@ void CCubeEx::Init(IDirect3DDevice9 * pDevice)
 		assert(dm9);
 		pDevice->SetMaterial(dm9);
 		//光源
+		//这里的光源随着观察坐标的变化，也就是说一开始有些没有没有被照亮的地方，随着我改变观察方向等，这些地方竟然被照亮了（前提物体不动，观察者动）
 		D3DLIGHT9 * light = nullptr;
 		D3DXVECTOR3 direction(1.0f, 0.0f, 0.0f);
 		D3DXCOLOR color = _COLOR_::WHITE;
