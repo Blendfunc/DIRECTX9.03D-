@@ -69,6 +69,13 @@ typedef struct CubeExStruct
 	}
 };
 
+struct TerrainStruct
+{
+	float _x, _y, _z;
+	float _u, _v;
+	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_TEX1;
+};
+
 enum _type_
 {
 	cubetype = 0 ,
