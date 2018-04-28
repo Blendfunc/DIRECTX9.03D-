@@ -23,7 +23,7 @@ for (int i = 0; i < 3; i++) \
 } \
 m_pDevice->EndScene(); \
 Sleep(10); \
-m_pDevice->Present(0, 0, 0, 0);s
+m_pDevice->Present(0, 0, 0, 0);
 //D3DXVec3Cross(&right, &look, &up); \
 /*CCamera::GetBobbingUpAndDownMatrix(&pm, &angle, &right, &up, &look, &pos);*/
 

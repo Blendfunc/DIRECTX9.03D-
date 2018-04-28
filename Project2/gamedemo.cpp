@@ -3,6 +3,7 @@
 #include "LitPyramid.h"
 #include "TextureDemo.h"
 #include "CubeEx.h"
+#include "Terrain.h"
 static IDirect3D9 * static_d3d9;
 static D3DCAPS9 static_d3dpp;
 static IDirect3DDevice9 * static_device;
@@ -146,9 +147,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	/*CLitPyramid clp;*/
 	/*CTextureDemo ctd;*/
 	/*clp.Init(static_device);*/
-	CCubeEx cce;
+	Terrain cce;
 	cce.Init(static_device);
-	static float i = 0.01f;
+	static float i = 0.1f;
 	while (true)
 	{
 		/*i = i + 0.0001f;*/

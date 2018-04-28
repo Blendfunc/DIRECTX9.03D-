@@ -1,4 +1,5 @@
 #pragma once
+#include".\DX\Include\d3dx9.h"
 #define outparameter//函数返回值，输出参数
 #define inparameter//输入参数，外部分配空间
 #define inoutparameter//接收一个void**等输入参数，内部分配空间后输出到外部
@@ -73,6 +74,12 @@ struct TerrainStruct
 {
 	float _x, _y, _z;
 	float _u, _v;
+	TerrainStruct(float x, float y, float z, float u , float v)
+	{
+		_x = x; _y = y; _z = z; _u = u; _v = v;
+	}
+	TerrainStruct()
+	{}
 	static const DWORD FVF = D3DFVF_XYZ | D3DFVF_TEX1;
 };
 

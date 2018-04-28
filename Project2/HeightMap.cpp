@@ -19,6 +19,8 @@ CHeightMapDataManager::~CHeightMapDataManager()
 void CHeightMapDataManager::SetHeightMapDataManager(int height, int width)
 {
 	m_Data = malloc(sizeof(int) * height * width);
+	m_Height = height;
+	m_Width = width;
 }
 
 int CHeightMapDataManager::GetData(int x, int y)

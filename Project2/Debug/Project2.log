@@ -1,2 +1,35 @@
-﻿  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.exe
+﻿  Terrain.cpp
+d:\directx9.03d-.git\trunk\project2\common.h(58): warning C4091: “typedef ”: 没有声明变量时忽略“TextureStruct”的左侧
+d:\directx9.03d-.git\trunk\project2\common.h(71): warning C4091: “typedef ”: 没有声明变量时忽略“CubeExStruct”的左侧
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(387): warning C4251: “LGBitMap::m_ImgSet”: class“std::map<LGObjId,LGObjType,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“LGBitMap”的客户端使用
+          with
+          [
+              _Kty=LGObjId,
+              _Ty=LGObjType
+          ]
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(388): warning C4251: “LGBitMap::m_MemDCId”: class“std::map<LGObjId,LGObjType,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“LGBitMap”的客户端使用
+          with
+          [
+              _Kty=LGObjId,
+              _Ty=LGObjType
+          ]
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(389): warning C4251: “LGBitMap::m_mapColorData”: class“std::map<LGBitMapId,BITMAPCOLORDATA,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“LGBitMap”的客户端使用
+          with
+          [
+              _Kty=LGBitMapId,
+              _Ty=BITMAPCOLORDATA
+          ]
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(411): warning C4091: “typedef ”: 没有声明变量时忽略“Direction”的左侧
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(417): warning C4091: “typedef ”: 没有声明变量时忽略“TwoPointPath”的左侧
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(423): warning C4091: “typedef ”: 没有声明变量时忽略“AllPointPath”的左侧
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(444): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(475): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\lgimgcommon.h(476): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\terrain.cpp(224): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\terrain.cpp(230): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\terrain.cpp(236): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\terrain.cpp(242): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\terrain.cpp(248): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\directx9.03d-.git\trunk\project2\terrain.cpp(254): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.exe
   Project2.vcxproj -> D:\DIRECTX9.03D-.git\trunk\Project2\Debug\Project2.pdb (Partial PDB)

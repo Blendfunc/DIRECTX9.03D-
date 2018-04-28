@@ -1,5 +1,6 @@
 #pragma once
 #include "_GraphInterface_.h"
+#include "Camera.h"
 static int staticheight = 0;
 static int staticwidth = 0;
 //坐标系
@@ -28,7 +29,7 @@ public:
 	~Terrain();
 public:
 	void Init(IDirect3DDevice9 * pDevice);
-	void Display(float timeDelta){}
+	void Display(float timeDelta);
 	
 
 private:
@@ -41,4 +42,8 @@ private:
 	void SetTheUpperLeftCornerCoordinates(float x, float y, float stepX , float stepY , float heightFactor);//从左到右，从上到下
 	TerrainData m_TerrainData;
 	void GetTexture(float height);
+
+	CCameraProperty m_CameraPrpperty;
+
+	IDirect3DTexture9 * m_pTexture;
 };
